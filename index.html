@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Headless Horseman – Face Replace</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Using FaceDetector API when available; shows a helpful fallback otherwise -->
+</head>
+<body>
+  <main>
+    <div class="stage">
+      <canvas id="scene" width="1152" height="1536" aria-label="Horseman scene"></canvas>
+      <div id="status" class="status">Loading camera…</div>
+    </div>
+    <video id="cam" playsinline autoplay muted></video>
+    <div class="controls">
+      <button id="snap">Take Photo</button>
+      <a id="download" download="horseman-selfie.png" class="hidden">Download Photo</a>
+    </div>
+    <details class="help">
+      <summary>Having trouble?</summary>
+      <ul>
+        <li>Allow camera access. Use the <b>front/selfie camera</b>.</li>
+        <li>Hold your face inside the frame; it will automatically replace the pumpkin.</li>
+        <li>If your browser doesn't support FaceDetector, try Chrome/Android. Safari may need the latest iOS.</li>
+      </ul>
+    </details>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
