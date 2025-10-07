@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Headless Horseman – Face Replace</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <div class="stage">
+      <canvas id="scene" width="1152" height="1536" aria-label="Horseman scene"></canvas>
+      <div id="status" class="status">Loading camera…</div>
+    </div>
+    <video id="cam" playsinline autoplay muted></video>
+    <div class="controls">
+      <button id="start">Start Camera</button>
+      <button id="snap">Take Photo</button>
+      <a id="download" download="horseman-selfie.png" class="hidden">Download Photo</a>
+    </div>
+    <details class="help">
+      <summary>Having trouble?</summary>
+      <ul>
+        <li>Tap <b>Start Camera</b> if Safari blocks autoplay.</li>
+        <li>If your browser lacks the native <code>FaceDetector</code>, this page uses a fallback (MediaPipe FaceMesh).</li>
+        <li>Hold your face inside the frame; it will automatically replace the pumpkin.</li>
+      </ul>
+    </details>
+  </main>
+
+  <!-- Native script -->
+  <script src="script.js"></script>
+
+  <!-- Fallback: MediaPipe FaceMesh (auto-loaded only if needed by script.js) -->
+  <script id="mp-camera-utils" defer src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script id="mp-drawing-utils" defer src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+  <script id="mp-face-mesh" defer src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+</body>
+</html>
